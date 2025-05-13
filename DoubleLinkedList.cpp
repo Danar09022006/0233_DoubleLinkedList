@@ -1,20 +1,19 @@
 #include <iostream>
 using namespace std;
 
-// membuat struktur untuk object double LinkedLIst
-struct Node
-{
-    // deklarasi noMhs dan name untuk mrnampung data
-    int noMhs;
-    string name;
-    // deklarasi pointer next dan pref untuk penunjukan
-    Node *next;
-    Node *prev;
+
+
+
+
+
+
+
+
+
 };
 
-
-
-
+// deklarasi ponter START dan pemberian nilai
+node *START = NULL;
 
 // deklarasi prosedur addNode
 void addNode()
@@ -93,16 +92,17 @@ void addNode()
     }
 }
 
-
-
-
-
-
-
-
-
-
-
+//pembuatan function search untuk mencari data
+bool search(int rollNo, Node **previous, Node **current)
+{
+    *previous = NULL;
+    *current = START;
+    while (*current != NULL && (*current)->noMhs != rollNo)
+    {
+        *previous = *current;
+        *current = (*current)->next;
+    }
+    return (*current != NULL);
 
 }
 
@@ -222,6 +222,24 @@ int main()
             cout << "\nEnter your choice (1-6): ";
             char ch;
             cin >> ch;
+            switch (ch)
+            {
+                case '1':
+                    addNode();
+                    break;
+                case '2':
+                    deleteNode();
+                    break;
+                case '3':
+                    traverse();
+                    break;
+                case '4':
+                    revtraverse();
+                    break;
+                case '5':
+                    searchData();
+                    break;
+            }
         }
     }
 }
