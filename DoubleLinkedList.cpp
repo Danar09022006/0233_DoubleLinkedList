@@ -1,33 +1,34 @@
 #include <iostream>
 using namespace std;
 
-
-
-
-
-
-
-
-
+// membuat struktur untuk object double LinkedLIst
+struct Node
+{
+    // deklarasi noMhs dan name untuk mrnampung data
+    int noMhs;
+    string name;
+    // deklarasi pointer next dan pref untuk penunjukan
+    Node *next;
+    Node *prev;
 
 };
 
 // deklarasi ponter START dan pemberian nilai
-node *START = NULL;
+Node *START = NULL;
 
 // deklarasi prosedur addNode
 void addNode()
 {
 
-    // membuat node dan pemberian value untuk data noMhs dan name
-    Node *newNode = new Node; // step 1 buat Node baru
-    cout << "\nEnter the roll number of the student: ";
-    cin >> newNode->noMhs; // Assign value to the data field of the new node
-    cout << "\nEnter the name of the student: ";
-    cin >> newNode->name; // Assign value to the data fied of th
+    
+    
+    
+    
+    
+    
 
     // insert the new node in the list
-    // kondlist jika star == null atau noMhs node baru <= noMhs start
+    // kondisi jika star == null atau noMhs node baru <= noMhs start
     if (START == NULL || newNode->noMhs <= START->noMhs)
     {
         // step 2: insert the new node at the beginning
@@ -110,7 +111,7 @@ bool search(int rollNo, Node **previous, Node **current)
 void *previous, *current;
 int rollNo;
 
-cout << "\nEnter the roll number of the student whose record is to be deleted: ";
+cout << "\nEnter the roll number of the student whose record is to be deleted:";
 cin >> rollNo; // step 3: get the roll number to be deleted
 
 if (START == NULL)
@@ -119,8 +120,8 @@ if (START == NULL)
     return;
 } 
 
-current = START; // step 1: start from the first node
-previous = NULL;
+    current = START; // step 1: start from the first node
+    previous = NULL;
 
 // locate the node to be deleted
 while (current != NULL && current->noMhs != rollNo)
@@ -158,7 +159,7 @@ else
  
 }
     // method untuk mengecek apakah list kosong
-    bool kistEmpty()
+    bool listEmpty()
     {
         return (START == NULL);
 
@@ -239,7 +240,18 @@ int main()
                 case '5':
                     searchData();
                     break;
+                case '6':
+                    return 0;
+                default:
+                    cout << "\nInvalid option" << endl;
+                    break;
             }
+
         }
-    }
+        catch (exception &e)
+        {
+            cout << "Check for the values entered." << endl;
+        }
+    }   
+
 }
